@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="content">
+        <div class="row">
+            <div class="col" *ngFor="let c of filteredProductsList">
+                <mat-card class="course-card">
+                    <mat-card-header>
+                        <div *ngIf="createdByUsername" mat-card-avatar class="usercircle">{{ createdByUsername[0] }}
+                        </div>
+                        <mat-card-title>{{ c.name }}</mat-card-title>
+                        <mat-card-subtitle>קטגוריה: {{c?.categoryId }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image [src]="c.imageUrl" alt="תמונת קורס">
+                    <mat-card-content>
+                        <div>
+                            תאריך התחלה: {{ c.dateStart }}<br>
+                              כמות שיעורים: {{ c.count }}<br>
+                            סוג הקורס: <mat-icon>{{ c.kindCourse | kindCourse }}</mat-icon> <br>
+                            <!-- מרצה: {{ c.lecturerId }}<br>
+                            סילבוס:
+                            <ul>
+                                <li *ngFor="let item of c.syllabus">{{ item }}</li>
+                            </ul> -->
+                        </div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <!-- <button mat-button (click)="editCourse()">עריכת פרטי הקורס</button> -->
+                        <button mat-button (click)="courses(c)">הצג פרטי קורס</button>
+
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button id="filterButton">סינון</button>
+<div class="filters-container">
+    <div class="filters">
+    <label class="bold-label"  for="courseName"> Course name:</label>
+    <select class="form-select" id="courseName" (change)="filterCourses('courseName', $event)">
+      <option value="">כל האפשרויות</option>
+      <option *ngFor="let course of allCourses" [value]="course.name">{{ course.name }}</option>
+    </select>
+    <br>
+    <label class="bold-label"  courseName> Learning Way:</label>
+    <select  class="form-select" id="learningWay" (change)="filterCourses('learningWay', $event)">
+      <option value="">כל האפשרויות</option>
+      <option value="0">ZOOM</option>
+      <option value="1">FRONTAL</option>
+    </select>
+    <br>
+    <label class="bold-label"  for="courseName">Categories :</label>
+    <select class="form-select" id="categoryId" (change)="filterCourses('categoryId', $event)">
+      <option value="">כל הקטגוריות</option>
+      <option *ngFor="let category of allCategories" [value]="category.id">{{ category.name }}</option>
+    </select>
+  </div>
