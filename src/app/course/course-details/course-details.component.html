@@ -1,6 +1,6 @@
 <div *ngIf="course">
   <div class="container">
-    <mat-card class="course-card">
+    <mat-card class="course-card" [ngClass]="{ 'course-started': isCourseStartedThisWeek() }" [ngStyle]="{ 'background-color': isCourseStartedThisWeek() ? 'yellow' : 'inherit' }">
       <mat-card-header (click)="toAllDetails()">
         <!-- התמונה החדשה -->
         <div *ngIf="createdByUsername" mat-card-avatar class="usercircle">{{ createdByUsername[0] }}</div>

@@ -112,19 +112,6 @@ export class EditCourseComponent implements OnInit {
     })
     // כאן תוכל להשתמש בשירותים או לשלוח את הנתונים באופן אחר לשרת
   }
-  // countValidator() {
-  //   return (control) => {
-  //     const pattern = /^[0-9\- ]+$/;
-  //     if (pattern.test(control.value)) {
-  //       return null;
-  //     } else {
-  //       return { invalidCount: true };
-  //     }
-  //   };
-  // }
-
-
-
 
   onCancel() {
     console.log(' ביטול שינויים');

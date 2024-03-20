@@ -151,26 +151,13 @@ private navigateToLoginPage(username: string) {
         console.log("After adding control");
         this.displayCourseName = true;
         //this.onInputBlur();
+       
       }
     }
-
-    //this.addForm.updateValueAndValidity();
   }
   onInputBlur() {
     this.router.navigate(["/course/all-courses"]);
   }
-
-  // private loadData(): void {
-  //   this._courseServise.getAllCourses().subscribe({
-  //     next: (res) => {
-  //       this.allCourses = res;
-  //       console.log(this.allCourses);
-  //     },
-  //     error: (err) => {
-  //       console.log(err)
-  //     }
-  //   });
-  // }
 
 
   displayCourseName: boolean = false;

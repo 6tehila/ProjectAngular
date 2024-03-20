@@ -111,31 +111,4 @@ export class AddCourseComponent implements OnInit {
        }
      });
   }
-
-
-
-  // private createSyllabusControl(): FormGroup {
-  //   return this.formBuilder.group({
-  //     syllabus: ['', Validators.required],
-  //   });
-  // }
-
-  // get syllabusArray() {
-  //   return this.addForm.get('syllabus') as FormArray;
-  // }
-
-  // onSyllabusValueChanged(index: number) {
-  //   const currentControl = this.syllabusArray.at(index);
-  //   const nextControl = this.syllabusArray.at(index + 1);
-
-  //   if (currentControl.value === '' && nextControl) {
-  //     // אם התיבה הנוכחית ריקה ויש תיבה הבאה, מחק את התיבה הבאה
-  //     this.syllabusArray.removeAt(index + 1);
-  //   }
-  // }
-
-  // addsyllabusField() {
-  //   this.syllabusArray.push(this.createSyllabusControl());
-  // }
-
 }

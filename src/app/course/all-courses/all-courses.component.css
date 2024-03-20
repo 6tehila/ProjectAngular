@@ -76,23 +76,6 @@
     /* הפריטים יופיעו מימין לסרגל */
 }
 
-.sidebar {
-    width: 200px;
-    /* רוחב הסרגל */
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    /* קביעת קבוצת הסרגל במקום קבוע */
-    top: 0;
-    /* הצמדת הסרגל לחלק העליון של הדף */
-    right: 0;
-    /* מיקום הסרגל בצד הימני של הדף */
-    height: 100%;
-    /* גובה מלא לסרגל */
-}
-
 .mat-card {
     /* width: 100%; גודל מקסימלי של כל הכרטיסים */
 
@@ -108,20 +91,66 @@ img {
     height: 250px;
     object-fit: cover; /* כדי לשמור על יחסי תצוגה */
 }
-.sidebar {
-    display: none; /* כבה תצוגת הסרגל כברירת מחדל */
-}
 
 .visible {
     display: block; /* הצג את הסרגל כאשר הוא מקבל את המחלקה visible */
 }
-.filter{
-    /* margin-top:50vh; */
+.filter {
+    position: fixed;
+    top: 15%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* הוספת אנימציה לשינוי צבע רקע הכפתור */
+}
 
+.filter:hover {
+    background-color: #0056b3;
 }
-.toggle-sidebar {
-    position: fixed; /* קביעת מיקום קבוע לכפתור */
-    top: 100px; /* הצמדת הכפתור לחלק העליון של הדף */
-    right: 20px; /* מיקום הכפתור בצד הימני של הדף */
-    z-index: 999; /* כדי להבטיח שהכפתור יהיה מעל לתוכן הדף */
+
+.filter.open {
+    background-color: #dc3545; /* שינוי צבע רקע הכפתור כאשר התפריט פתוח */
 }
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: -250px; /* מיקום התפריט מחוץ למסך */
+    transform: translateY(-50%);
+    background-color: #f8f9fa;
+    width: 250px;
+    height: 100%;
+    padding: 20px;
+    transition: right 0.3s; /* הוספת אנימציה לפתיחה וסגירה של התפריט */
+}
+
+.sidebar.visible {
+    right: 0; /* הצגת התפריט כאשר הוא פתוח */
+}
+.filters-container {
+    position: fixed;
+    top: 50px; /* לדוגמה, יכול להיות גבוה יותר או נמוך יותר בהתאם לצורך */
+    right: 20px; /* כאן תוכל להתאים את המרחק מהימין כפי שתרצה */
+    z-index: 999;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+#filterButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* כדי שהכפתור יהיה מעל ה-container */
+    background-color: #007bff; /* צבע רקע */
+    color: white; /* צבע טקסט */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
